@@ -36,7 +36,9 @@
    <img src="resources/images/picture.jpg" class="img-responsive"></img>
    
     <div class="carousel-caption">
-     <div class="carousel-caption right-caption text-right">
+     <!-- <div class="carousel-caption right-caption text-right"> -->
+     <div class="row">
+    <div class="col-md-6">
         <h2 style="font-weight:bold; color:black;">ABOUT US</h2>
         <p>BookStore.in offers you over 10 million titles across categories such as Childrens Books, 
 Business and Economics, Indian Writing and Literature and Fiction.
@@ -66,7 +68,7 @@ such as cash on delivery, easy returns and enjoy a completely hassle free online
 
 You can now also buy and sell used books at Bookstore.in completely tension free.<br>
 
-    
+    </div>
     </div>   
     </div>
     </div>

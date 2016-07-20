@@ -28,8 +28,9 @@
 	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 <style>
 #map {
-	width: 80%;
-	height: 400px;
+	width: 40%;
+	height: 250px;
+	align:center;
 }
 .carousel-caption {
     top: 0;
@@ -54,13 +55,14 @@
 	<%@include file="header.jsp"%>
 	<div class="carousel-inner" role="listbox">
     <div class="item active">
-   
-       <img src="resources/images/openbook.jpg" class="img-responsive"></img>
+     
+      <img src="resources/images/openbook.jpg" class="img-responsive"></img>
          <div class="carousel-caption">
      
-	 <div class="container text-center">
-     
-      <br><br><br><br><br><h1 style="font-weight:bold; color:black;">Contact Us</h1><br>
+	<!--   <div class="container text-center">-->
+     <div class="row">
+    <div class="col-md-6">
+     <br><br><br><br><br><h1 style="font-weight:bold; color:black;">Contact Us</h1><br>
 		<span style="font-weight: bold ; color:black;">Address:</span><p>Bhavanagar,Keshav
 		Puram,Tri Nagar, <br> New Delhi,Delhi 110034 <br></p><abbr
 			title="Phone"><span style="font-weight: bold; color:black;">Phone:</span></abbr><p>(011)
@@ -75,13 +77,13 @@
 			class="fa fa-twitter-square fa-3x social"></i></a> <a
 			href="https://plus.google.com/"><i id="social-gp"
 			class="fa fa-google-plus-square fa-3x social"></i></a>
-    
-	 <div id="googleMap" style="width: 380px; height: 380px; align:top"></div>
-     <script async defer
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6xrKoTQqj0s7peNxtwKsfccTTQLndNP0&callback=initMap">
-		
-	</script>
-	</div>
+			</div>
+     <div class="col-md-6"><span class="pull-right">
+        <br><br><br><br><h1 style="font-family:forte ;color:#1A5880;">LOCATE US!</h1>
+		<br><br><div id="googleMap" style="width: 370px; height: 380px; align:top"></div>
+    </span>
+    </div>
+    </div>
 	</div>
 	</div>
 	</div>
@@ -89,8 +91,13 @@
 	
 	<br>
 
-	<div id="googleMap" style="width: 500px; height: 380px;"></div>
-	<!-- <div id="map"></div>
+	<!--  <div id="googleMap" style="width: 500px; height: 380px;"></div>
+		 <div id="googleMap" style="width: 380px; height: 380px; align:top"></div>
+     <script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6xrKoTQqj0s7peNxtwKsfccTTQLndNP0&callback=initMap">
+		
+	</script>-->
+	<!--   <div id="map"></div>
     <script>
       function initMap() {
         var mapDiv = document.getElementById('map');

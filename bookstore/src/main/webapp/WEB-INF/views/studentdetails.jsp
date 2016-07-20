@@ -33,9 +33,7 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<!--  ========= Navigation bar======= -->
-	<%@include file="header.jsp"%>
-
+	
 	<h2>Add Product</h2>
 
 	<c:url var="addAction" value="/studentdetails/add"></c:url>

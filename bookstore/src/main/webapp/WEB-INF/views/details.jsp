@@ -80,11 +80,13 @@ function normalImg(x) {
 				<td>${param.status}</td>
 			</tr>
 			<tr>
-				<td><a href="#" class="btn btn-primary" role="button">Buy </a>
-				<a href="cart" class="btn btn-primary" role="button">Add to cart</a>
+				<!--<td><a href="#" class="btn btn-primary" role="button">Buy </a>
+				
 					<a href="#" class="btn btn-primary" role="button">Wishlist</a> 
 					<a href="#myModal" role="button" data-toggle="modal"
-					class="btn btn-primary">Share with a Friend</a></td>
+					class="btn btn-primary">Share with a Friend</a></td>-->
+					<input type="submit" name="_eventId_goToAddress" class="btn btn-default" value="Add to Cart"/>
+				 <input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}" />
 			</tr>
 			<tr>
 

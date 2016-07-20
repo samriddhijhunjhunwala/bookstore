@@ -18,9 +18,11 @@
 </head>
 <body>
 <%@include file="header.jsp" %>
+<div class="container-wrapper">
+    <div class="container">
 <div id="login-box">
 
-		<h3>Login with Username and Password</h3>
+		<h3 style="font-family:forte ;color:#1A5880;">Login to continue</h3>
 
 		<c:if test="${not empty error}">
 			<div class="error">${error}</div>
@@ -34,23 +36,37 @@
 
 			<table>
 				<tr>
-					<td>User:</td>
-					<td><input type='text' name='name'></td>
+				 
+					<td>Name:</td>
+					<td>
+					<div class="form-group">
+					<input type='text' name='name' class="form-control" id="name" placeholder="Enter Name"/>
+					</div>
+					</td>
+					
 				</tr>
 				<tr>
-					<td>Password:</td>
-					<td><input type='password' name='password' /></td>
+				    <td>Password:</td>
+					<td>
+					<div class="form-group">
+					<input type='password' name='password' class="form-control" id="name" placeholder="Enter Password"/>
+					</div>
+					</td>
 				</tr>
 				<tr>
-					<td colspan='2'><input name="submit" type="submit"
+					<td colspan='2'><input name="submit" type="submit" class="btn btn-default"
 						value="submit" /></td>
-				</tr>
+						</tr>
 			</table>
 
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" />
 
 		</form>
+		</div>
+		</div>
 	</div>
+	 <!--  ========= footer======= -->
+	<%@include file="footer.jsp"%> 
 </body>
 </html>

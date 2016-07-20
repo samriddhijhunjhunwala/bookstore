@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -60,7 +61,7 @@ public class Bookcontroller {
 	{
 		return "register";
 	}*/
-	@RequestMapping("/books")
+	/*@RequestMapping("/books")
 	public ModelAndView loadBooksPage()
 	{   
 	   Productdaoimp productdoaimp=new Productdaoimp();
@@ -72,13 +73,22 @@ public class Bookcontroller {
 	   ModelAndView mv=new ModelAndView("books");
 	   mv.addObject("myJson", json);
 	   return mv;
-	}
+	}*/
 
 	 @RequestMapping(value = "/bookuser", method = RequestMethod.GET)
-	    public String listBookusers(Model model) {
+	    public ModelAndView listBookusers(Model model) {
 	        model.addAttribute("student", new Student());
 	        model.addAttribute("listfromtable", this.ss.listPersons());
-	        return "bookuser";
+	        
+	        List<Student> productlist=new ArrayList<Student>();
+	        productlist=ss.listPersons();
+	        String json = new Gson().toJson(productlist);  // converting list into Google Gson object which is a string
+	 	   
+	 	   ModelAndView mv=new ModelAndView("bookuser");
+	 	   mv.addObject("myJson", json);
+	 	   return mv;
+	        
+	        //return "bookuser";
 	    }
 
 	/*@RequestMapping("/details/{id}")
@@ -132,7 +142,7 @@ private StudentService ss;
 	
 	 
 	 @RequestMapping(value= "/studentdetails/add", method = RequestMethod.POST)
-	  public String addPerson(@ModelAttribute("student") Student p, BindingResult result, HttpServletRequest request){
+	  public String addPerson(@Valid @ModelAttribute("student") Student p, BindingResult result, HttpServletRequest request){
 		  String filename = null;
           byte[] bytes;
           if(!p.getImage().isEmpty())
@@ -178,7 +188,7 @@ private StudentService ss;
                }
         }
 		 
-		         if(p.getId() == 0){
+		       if(p.getId() == 0){
 	            //new person, add it
 	            this.ss.addPerson(p);
 	        }

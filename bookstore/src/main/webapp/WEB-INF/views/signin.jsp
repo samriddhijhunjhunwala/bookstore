@@ -56,7 +56,7 @@
 				<tr>
 					<td colspan='2'><input name="submit" type="submit" class="btn btn-default"
 						value="submit" /></td>
-				</tr>
+						</tr>
 			</table>
 
 			<input type="hidden" name="${_csrf.parameterName}"

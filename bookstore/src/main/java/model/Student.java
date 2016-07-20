@@ -9,7 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -20,10 +23,15 @@ public class Student {
 	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int id;
+	@NotNull
 	String bookname;
+	@NotNull
 	String author;
+	@Min(value=0)
 	String price;
+	@NotNull
 	String publisher;
+	@NotBlank
 	String status;
 	@Transient
 	MultipartFile image;

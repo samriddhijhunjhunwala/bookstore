@@ -33,9 +33,7 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<!--  ========= Navigation bar======= -->
-	<%@include file="header.jsp"%>
-
+	
 	<h2>Add Product</h2>
 
 	<c:url var="addAction" value="/studentdetails/add"></c:url>
@@ -91,7 +89,7 @@
     </tr>
 			<tr>
 				<td colspan="2"><c:if test="${!empty name}">
-						<input type="submit" value="<spring:message text="Edit Student"/>" />
+						<input type="submit" value="<spring:message text="Edit Product"/>" />
 					</c:if> <c:if test="${empty name}">
 						<input type="submit" value="<spring:message text="Add Product"/>" />
 					</c:if></td>
