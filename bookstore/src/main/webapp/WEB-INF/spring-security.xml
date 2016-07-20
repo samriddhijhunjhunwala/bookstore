@@ -13,11 +13,11 @@
 <security:http auto-config="true">
         <security:intercept-url pattern="/students/**" access="hasRole('ROLE_ADMIN')" />
         
-        <security:intercept-url pattern="/bookuser/**" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
+        <!--  <security:intercept-url pattern="/bookuser/**" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />--> 
         <!--  <security:intercept-url pattern="/furniture/admin/**" access="ROLE_USER,ROLE_ADMIN" />-->
         <security:form-login
             login-page="/signin"
-            default-target-url="/studentdetails"
+            default-target-url="/students"
             login-processing-url="/perform_login"
             authentication-failure-url="/loginError"
             username-parameter="name"

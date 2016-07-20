@@ -81,9 +81,10 @@ function normalImg(x) {
 			</tr>
 			<tr>
 				<td><a href="#" class="btn btn-primary" role="button">Buy </a>
-					<a href="#" class="btn btn-default" role="button">Wishlist</a> <a
-					href="#myModal" role="button" data-toggle="modal"
-					class="btn btn-default">Share with a Friend</a></td>
+				<a href="cart" class="btn btn-primary" role="button">Add to cart</a>
+					<a href="#" class="btn btn-primary" role="button">Wishlist</a> 
+					<a href="#myModal" role="button" data-toggle="modal"
+					class="btn btn-primary">Share with a Friend</a></td>
 			</tr>
 			<tr>
 

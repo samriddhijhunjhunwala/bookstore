@@ -9,7 +9,7 @@
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="books">BOOKS <span class="caret"></span></a>
         <ul class="dropdown-menu">
       <li class="dropdown-header">FEATURED STORE</li>
-      <li><a href="bookuser">Preorders</a></li>
+      <li><a href="bookuser">Productdetails</a></li>
       <li><a href="bookuser">New Realeases</a></li>
       <li><a href="bookuser">Best Sellers</a></li>
        <li><a href="bookuser">Indian Author</a></li>
@@ -22,7 +22,7 @@
       <li><a href="books">Activity Books</a></li>
       <li><a href="books">Fun and Games</a></li>
        <li class="divider"></li>
-        <li><a href="students">Productdetails</a></li>
+        <li><a href="students">Admindetails</a></li>
     </ul>
       <li><a href="aboutus">About Us</a></li>
     <li><a href="contactus">Contact Us</a></li>

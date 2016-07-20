@@ -18,9 +18,11 @@
 </head>
 <body>
  <%@include file="header.jsp" %>
- <h2>SIGN UP!</h2>
+ <div class="container">
+ <h2 style="font-family:forte ;color:#1A5880;">SIGN UP!</h2>
 <c:url var="addAction" value="/register/add" ></c:url>
 <form:form action="${addAction}" commandName="user" method="POST">
+<form role="form">
 <table>
     <c:if test="${!empty name}">
     <tr>
@@ -36,14 +38,19 @@
     </tr>
     </c:if>
     <tr>
+     
         <td>
-            <form:label path="name">
+            
+            <form:label path="name" >
                 <spring:message text="Name"/>
             </form:label>
         </td>
         <td>
-            <form:input path="name" />
+        <div class="form-group">
+            <form:input path="name" class="form-control" id="name" placeholder="Enter Name"/>
+             </div>
         </td> 
+        
     </tr>
    
     <tr>
@@ -53,7 +60,9 @@
             </form:label>
         </td>
         <td>
-            <form:input path="email" />
+        <div class="form-group">
+            <form:input path="email" class="form-control" id="name" placeholder="Enter Email"/>
+            </div>
         </td>
     </tr>
     <tr>
@@ -63,7 +72,9 @@
             </form:label>
         </td>
         <td>
-            <form:input path="contactno" />
+        <div class="form-group">
+            <form:input path="contactno"  class="form-control" id="name" placeholder="Enter contact no." />
+            </div>
         </td>
     </tr>
     <tr>
@@ -73,7 +84,9 @@
             </form:label>
         </td>
         <td>
-            <form:input path="address" />
+        <div class="form-group">
+            <form:input path="address"  class="form-control" id="name" placeholder="Enter Address" />
+            </div>
         </td>
     </tr>
     <tr>
@@ -83,18 +96,24 @@
             </form:label>
         </td>
         <td>
-            <form:input path="password" />
+        <div class="form-group">
+            <form:input path="password" class="form-control" id="name" placeholder="Enter Password"/>
+            </div>
         </td>
     </tr>
     <tr>
         <td colspan="2">
             <c:if test="${empty name}">
-                <input type="submit"
+                <input type="submit" class="btn btn-default"
                     value="<spring:message text="Register"/>"/>
             </c:if>
         </td>
     </tr>
 </table>  
+</form>
 </form:form>
+</div>
+ <!--  ========= footer======= -->
+	<%@include file="footer.jsp"%> 
 </body>
 </html>

@@ -92,6 +92,13 @@ public class Bookcontroller {
 		{	
 		 return "details";
 		}
+		@RequestMapping("/cart")
+		public String loadCartPage()
+		{	
+		 return "cart";
+		}
+	
+	
 		
 	
 	
@@ -192,14 +199,14 @@ private StudentService ss;
 	 
 	    @RequestMapping("/edit/{id}")
 	    public String editPerson(@PathVariable("id") int id, Model model){
-	        /*model.addAttribute("student", this.ss.getPersonById(id));
+	        model.addAttribute("student", this.ss.getPersonById(id));
 	        model.addAttribute("listfromtable", this.ss.listPersons());
-	        return "studentdetails";*/
-	    	  Student student = ss.getPersonById(id);
+	      return "studentdetails";
+	    	 // Student student = ss.getPersonById(id);
 
-	          model.addAttribute("student", student);
+	          //model.addAttribute("student", student);
 
-	          return("redirect:/students");
+	          //return("redirect:/students");
 	    }
 	    @RequestMapping("/students")
 		public String showIndexPage()
