@@ -85,8 +85,9 @@ function normalImg(x) {
 					<a href="#" class="btn btn-primary" role="button">Wishlist</a> 
 					<a href="#myModal" role="button" data-toggle="modal"
 					class="btn btn-primary">Share with a Friend</a></td>-->
-					<input type="submit" name="_eventId_goToAddress" class="btn btn-default" value="Add to Cart"/>
+				<td>	<input type="submit" name="_eventId_goToAddress" class="btn btn-default" value="Add to Cart"/>
 				 <input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}" />
+				 </td>
 			</tr>
 			<tr>
 
