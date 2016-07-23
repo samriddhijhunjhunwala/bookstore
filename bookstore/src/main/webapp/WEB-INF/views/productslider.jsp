@@ -13,7 +13,7 @@
 						<!--  <a class="left fa fa-chevron-left btn btn-primary"
 							href="#carousel-example" data-slide="prev"></a><a
 							class="right fa fa-chevron-right btn btn-primary"
-							href="#carousel-example" data-slide="next"></a>-->
+							href="#carousel-example" data-slide="next"></a> -->
 							
 					</div>
 						
@@ -50,7 +50,7 @@
 										<div class="separator clear-left">
 											<p class="btn-details">
 												<i class="fa fa-list"></i><a
-													href="http://localhost:8080/bookstore/details?id=170&name=The%20Life%20of%20Roald%20Dahl:%20A%20Marvellous%20Adventure%20&author=Emma%20Fischel&price=200&publisher=Hachette%20Children%20Book&status=Available" class="hidden-sm">More
+													href="#" class="hidden-sm">More
 													details</a>
 											</p>
 										</div>
@@ -80,7 +80,7 @@
 										<div class="separator clear-left">
 											<p class="btn-details">
 												<i class="fa fa-list"></i><a
-													href="http://localhost:8080/bookstore/details?id=169&name=Franklin%20and%20the%20Stopwatch&author=Sharon%20Jennings&price=894&publisher=Kids%20Can%20Press&status=Available" class="hidden-sm">More
+													href="#" class="hidden-sm">More
 													details</a>
 											</p>
 										</div>
@@ -111,7 +111,7 @@
 										<div class="separator clear-left">
 											<p class="btn-details">
 												<i class="fa fa-list"></i><a
-													href="http://localhost:8080/bookstore/details?id=168&name=Revolution%20Twenty20%20:%20Love%20.%20Corruption.%20Ambition%20&author=Chetan%20Bhagat&price=155&publisher=%20Rupa%20Publications%20India&status=Available" class="hidden-sm">More
+													href="#" class="hidden-sm">More
 													details</a>
 											</p>
 										</div>
@@ -143,7 +143,7 @@
 											
 											<p class="btn-details">
 												<i class="fa fa-list"></i><a
-													href="http://localhost:8080/bookstore/details?id=167&name=To%20Kill%20A%20Mockingbird&author=Harper%20Lee&price=245&publisher=Random%20House&status=Available" 
+													href="#" 
 													class="hidden-sm">More details</a>
 											</p>
 										</div>
@@ -175,7 +175,7 @@
 										
 											<p class="btn-details">
 												<i class="fa fa-list"></i><a
-													href="http://localhost:8080/bookstore/details?id=203&name=Five Minutes Until Bed&author=Dorothea DePrisco Wang&price=1069&publisher=Accord Publishing, A Division Of Andrews Mcmeel&status=Out of stock" class="hidden-sm">More
+													href="#" class="hidden-sm">More
 													details</a>
 											</p>
 										</div>
@@ -207,7 +207,7 @@
 										
 											<p class="btn-details">
 												<i class="fa fa-list"></i><a
-													href="http://www.jquery2dotnet.com" class="hidden-sm">More
+													href="#" class="hidden-sm">More
 													details</a>
 											</p>
 										</div>

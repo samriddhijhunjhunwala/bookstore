@@ -31,15 +31,41 @@
 	src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript"
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	 <script src="http://code.angularjs.org/1.4.8/angular.js"></script>  
+   <script src="http://code.angularjs.org/1.4.8/angular-resource.js"></script>  
+   <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>  
+   <script>  
+     var app = angular.module('MyForm', ['ui.bootstrap', 'ngResource']);  
+     app.controller('myCtrl', function ($scope) {  
+       $scope.predicate = 'name';  
+       $scope.reverse = true;  
+       $scope.currentPage = 1;  
+       $scope.order = function (predicate) {  
+         $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;  
+         $scope.predicate = predicate;  
+       };  
+       $scope.students = ${myJson};  //This code is extracting the string object being sent from controller
+       $scope.totalItems = $scope.students.length;  
+       $scope.numPerPage = 5;  
+       $scope.paginate = function (value) {  
+         var begin, end, index;  
+         begin = ($scope.currentPage - 1) * $scope.numPerPage;  
+         end = begin + $scope.numPerPage;  
+         index = $scope.students.indexOf(value);  
+         return (begin <= index && index < end);  
+       };  
+     });  
+   </script>  
 </head>
 <body>
 	
+
 	<h2>Add Product</h2>
 
 	<c:url var="addAction" value="/studentdetails/add"></c:url>
 	<form:form action="${addAction}" commandName="student" enctype="multipart/form-data" method="POST">
 		<table>
-			<c:if test="${!empty name}">
+			<c:if test="${!empty student.bookname}">
 				<tr>
 					<td><form:label path="id">
 							<spring:message text="ID" />
@@ -78,6 +104,12 @@
 					</form:label></td>
 				<td><form:input path="status" /></td>
 			</tr>
+			<tr>
+				<td><form:label path="description">
+						<spring:message text="Description" />
+					</form:label></td>
+				<td><form:input path="description" /></td>
+			</tr>
 			<td>
     		<form:label path="image">
     			<spring:message text="Upload Image"/>
@@ -88,9 +120,9 @@
     	</td>
     </tr>
 			<tr>
-				<td colspan="2"><c:if test="${!empty name}">
-						<input type="submit" value="<spring:message text="Edit Product"/>" />
-					</c:if> <c:if test="${empty name}">
+				<td colspan="2"><c:if test="${!empty student.bookname}">
+						<input type="submit" value="<spring:message text="Edit Student"/>" />
+					</c:if> <c:if test="${empty student.bookname}">
 						<input type="submit" value="<spring:message text="Add Product"/>" />
 					</c:if></td>
 			</tr>
@@ -100,53 +132,66 @@
 	</form:form>
 	<br>
 	<!--  ========= Table to populate data ======= -->
-	<center>
-		<div class="container">
-			<table>
-				<table id="myTable" class="table table-striped">
-					<thead>
-						<tr>
-							<th>Serial No</th>
-							<th>Book Name</th>
-							<th>Author</th>
-							<th>Price</th>
-							<th>Publisher</th>
-							<th>Status</th>
-							<th>Details</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${listfromtable}" var="element">
-							<tr>
-								<td>${element.id}</td>
+	<body ng-app="MyForm">  
+   <div ng-controller="myCtrl">  
+     <h3>Product List</h3>  
+     <div class="container-fluid">  
+       <hr />  
+       <table class="table table-striped">  
+          <thead>  
+           <tr>  
+             <th>  
+               <a href="" ng-click="order('id')">Product_id</a>  
+             </th>   
+             <th>  
+               <a href="" ng-click="order('productname')">Book_name</a>  
+             </th>  
+             <th><a href="" ng-click="order('category')">Author</a> </th>  
+             <th><a href="" ng-click="order('price')">Price</a> </th>  
+               <th><a href="" ng-click="order('status')">Publisher</a> </th>  
+                   <th><a href="" ng-click="order('description')">Status</a> </th>  
+                      <th><a href="" ng-click="order('description')">Description</a> </th>  
+           </tr>  
+         </thead>
+         <tbody>  
+           <tr>  
+             <td> <input type="text" ng-model="search.id" /></td>  
+             <td> <input type="text" ng-model="search.bookname" /></td>  
+             <td> <input type="text" ng-model="search.author" /> </td>  
+              <td><input type="text" ng-model="search.price" /> </td>  
+               <td><input type="text" ng-model="search.publisher" /> </td>  
+                <td><input type="text" ng-model="search.status" /> </td>  
+                 <td><input type="text" ng-model="search.description" /> </td> 
 
-								<td>${element.bookname}</td>
-
-								<td>${element.author}</td>
-
-								<td>${element.price}</td>
-
-								<td>${element.publisher}</td>
-
-								<td>${element.status}</td>
-
-								<td><a href="<c:url value='/edit/${element.id}' />">Edit</a></td>
-								<td><a href="<c:url value='/remove/${element.id}' />">Delete</a></td>
-
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-				</div>
-				</center>
+           </tr>  
+        
+ <tr ng-repeat="element in students | orderBy:predicate:reverse | filter:paginate| filter:search" ng-class-odd="'odd'">
+       
+          
+        
+             <td>{{ element.id}}</td>  
+             <td>{{element.bookname}}</td>  
+             <td>{{ element.author}}</td>  
+             <td>{{ element.price}}</td>  
+              <td>{{  element.publisher}}</td> 
+               <td>{{element.status}}</td> 
+                 <td>{{element.description}}</td> 
+              <td><a href="<c:url value='/edit/{{element.id}}' />" >Edit</a></td>
+            	<td><a href="<c:url value='/remove/{{element.id}}' />" >Delete</a></td>
+           </tr>
+       
+         </tbody>  
+       </table>  
+       <pagination total-items="totalItems" ng-model="currentPage"  
+             max-size="5" boundary-links="true"  
+             items-per-page="numPerPage" class="pagination-sm">  
+       </pagination>  
+     </div>  
 
 
 <!--  ========= footer======= -->
 	<%@include file="footer.jsp"%> 
+
 </body>
-<script>
-$(document).ready(function(){
-    $('#myTable').dataTable();
-});
-</script>
+
 </html>

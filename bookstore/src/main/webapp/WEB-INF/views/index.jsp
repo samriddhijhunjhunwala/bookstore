@@ -119,7 +119,8 @@ hr {
      <hr>
   
  <!--  ========= Productslider bar======= -->
-	<%@include file="productslider.jsp"%>
+	<%@include file="productslider.jsp"%> 
+    
    <!--  ========= footer======= -->
 	<%@include file="footer.jsp"%> 
     

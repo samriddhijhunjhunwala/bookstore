@@ -31,8 +31,11 @@ public class StudentDAOImpl {
     }
    
     public void updatePerson(Student p) {
-       Session session = this.sessionFactory.getCurrentSession();
+      Session session = this.sessionFactory.getCurrentSession();
        session.update(p);
+     
+		
+   
       
     }
     

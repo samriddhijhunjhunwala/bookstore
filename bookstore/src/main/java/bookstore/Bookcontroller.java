@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -76,19 +77,19 @@ public class Bookcontroller {
 	}*/
 
 	 @RequestMapping(value = "/bookuser", method = RequestMethod.GET)
-	    public ModelAndView listBookusers(Model model) {
+	    public String listBookusers(Model model) {
 	        model.addAttribute("student", new Student());
 	        model.addAttribute("listfromtable", this.ss.listPersons());
 	        
-	        List<Student> productlist=new ArrayList<Student>();
+	       /* List<Student> productlist=new ArrayList<Student>();
 	        productlist=ss.listPersons();
 	        String json = new Gson().toJson(productlist);  // converting list into Google Gson object which is a string
 	 	   
 	 	   ModelAndView mv=new ModelAndView("bookuser");
 	 	   mv.addObject("myJson", json);
-	 	   return mv;
+	 	   return mv;*/
 	        
-	        //return "bookuser";
+	        return "bookuser";
 	    }
 
 	/*@RequestMapping("/details/{id}")
@@ -102,15 +103,6 @@ public class Bookcontroller {
 		{	
 		 return "details";
 		}
-		@RequestMapping("/cart")
-		public String loadCartPage()
-		{	
-		 return "cart";
-		}
-	
-	
-		
-	
 	
 //CRUD OPERATIONS
 	
@@ -125,24 +117,38 @@ private StudentService ss;
 	
 	
 	@RequestMapping(value = "/students", method = RequestMethod.GET)
-	    public String listPersons(Model model) {
+	    public ModelAndView listPersons(Model model) {
 	        model.addAttribute("student", new Student());
 	        model.addAttribute("listfromtable", this.ss.listPersons());
-	        return "studentdetails";
+	       List<Student> productlist=new ArrayList<Student>();
+	        productlist=ss.listPersons();
+	        String json = new Gson().toJson(productlist);  // converting list into Google Gson object which is a string
+	 	   
+	 	   ModelAndView mv=new ModelAndView("studentdetails");
+	 	   mv.addObject("myJson", json);
+	 	   return mv;
+	        //return "studentdetails";
 	    }
      
     @RequestMapping("/studentdetails")
-	public List<Student> showDetailstoAdmin(Model mp)
+	public ModelAndView showDetailstoAdmin(Model mp)
 	{
 		List<Student> listtojsp=new ArrayList<Student>();
 		listtojsp=ss.listPersons();
 		mp.addAttribute("listfromtable",listtojsp);
-		return listtojsp;
+		  List<Student> productlist=new ArrayList<Student>();
+	        productlist=ss.listPersons();
+	        String json = new Gson().toJson(productlist);  // converting list into Google Gson object which is a string
+	 	   
+	 	   ModelAndView mv=new ModelAndView("studentdetails");
+	 	   mv.addObject("myJson", json);
+	 	   return mv;
+        //return listtojsp;
 	}
 	
 	 
 	 @RequestMapping(value= "/studentdetails/add", method = RequestMethod.POST)
-	  public String addPerson(@Valid @ModelAttribute("student") Student p, BindingResult result, HttpServletRequest request){
+	  public String addPerson(@Valid @ModelAttribute("student") Student p, BindingResult result, HttpServletRequest request, Model model){
 		  String filename = null;
           byte[] bytes;
           if(!p.getImage().isEmpty())
@@ -176,8 +182,9 @@ private StudentService ss;
               
                if (result.hasErrors())
                {
-              
-                     return "studentdetails";
+            	System.out.println("error");
+       			model.addAttribute("listfromtable", this.ss.listPersons());
+                return "redirect:/students";
        
                }
                else
@@ -213,10 +220,8 @@ private StudentService ss;
 	        model.addAttribute("listfromtable", this.ss.listPersons());
 	      return "studentdetails";
 	    	 // Student student = ss.getPersonById(id);
-
-	          //model.addAttribute("student", student);
-
-	          //return("redirect:/students");
+              //model.addAttribute("student", student);
+	        //return("redirect:/students");
 	    }
 	    @RequestMapping("/students")
 		public String showIndexPage()
